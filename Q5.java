@@ -10,7 +10,7 @@ public class Q5 {
 				System.exit();
 			}
 			for (int i = 0; i < count; i++)
-        		System.out.println("*".repeat(i + 1));
+        		System.out.println("x".repeat(i + 1));
 		} else {
 			throw new IllegalArgumentException();
 		}
