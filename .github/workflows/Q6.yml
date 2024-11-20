@@ -1,0 +1,53 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Q6
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    permissions : write-all
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: |
+          git pull
+          file=Q6_archive_$(date +"%d-%m-%Y-%H%M%S").txt
+          touch old.txt
+          [ -r $file ] && cat $file > old.txt
+          touch $(pwd)/$file
+          echo Roche Gabriel > $file
+          echo -e >> $file
+          echo "Nombre de caractères : " >> $file
+          [ -r Q6.java ] && wc -m Q6.java >> $file
+          echo -e >> $file
+          echo "Nombre de lignes : " >> $file
+          [ -r Q6.java ] && wc -l Q6.java >> $file
+          echo -e >> $file
+          [ -r Q6.java ] && cat Q6.java >> $file
+          touch Q6_différences.txt
+          diff $file old.txt > Q6_différences.txt
+          [ -r old.txt ] && rm old.txt
+          git config user.email "gabirocher@icloud.com"
+          git config user.name "TheCrafteur2015"
+          git add $file
+          git add Q6_différences.txt
+          git commit -m "Mise à jour du fichier $file"
+          git push
