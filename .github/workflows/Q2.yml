@@ -30,6 +30,7 @@ jobs:
         run: |
           touch Q2_archive_README.md
           echo Roche Gabriel > Q2_archive_README.md
+          echo -e >> Q2_archive_README.md
           date >> Q2_archive_README.md
           cat README.md >> Q2_archive_README.md
           git config user.email "gabirocher@icloud.com"
