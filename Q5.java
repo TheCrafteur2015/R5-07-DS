@@ -9,8 +9,8 @@ public class Q5 {
 				System.out.println("Sorry but it is not a number...");
 				System.exit();
 			}
-			for (int i = 0; i < count; i++)
-        		System.out.println("x".repeat(i + 1));
+			for (int i = count; i > 0; i--)
+        		System.out.println("x".repeat(i));
 		} else {
 			throw new IllegalArgumentException();
 		}
