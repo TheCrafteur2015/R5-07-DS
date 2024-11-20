@@ -42,7 +42,7 @@ jobs:
           echo -e >> $file
           [ -r Q6.java ] && cat Q6.java >> $file
           touch Q6_différences.txt
-          diff $file old.txt > Q6_différences.txt
+          [ -r old.txt ] && diff $file old.txt > Q6_différences.txt
           [ -r old.txt ] && rm old.txt
           git config user.email "gabirocher@icloud.com"
           git config user.name "TheCrafteur2015"
