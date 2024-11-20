@@ -27,4 +27,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: cat README.md > Q1_archive_README.md
+        run: |
+          cat README.md > Q1_archive_README.md
+          git add Q1_archive_README.md
+          git commit -m "Mise à jour du fichier Q1_archive_README.md"
+          git push
