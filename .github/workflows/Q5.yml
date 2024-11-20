@@ -28,6 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
+          git pull
           file=Q5_archive_$(date +"%d-%m-%Y").txt
           touch $(pwd)/$file
           echo Roche Gabriel > $file
