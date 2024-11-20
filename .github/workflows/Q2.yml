@@ -33,6 +33,8 @@ jobs:
           echo Roche Gabriel > Q2_archive_README.md
           date >> Q2_archive_README.md
           cat README.md >> Q2_archive_README.md
+          git config user.email "gabirocher@icloud.com"
+          git config user.name "TheCrafteur2015"
           git add Q2_archive_README.md
           git commit -m "Création du fichier Q2_archive_README.md"
           git push
