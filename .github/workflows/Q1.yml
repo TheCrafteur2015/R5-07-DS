@@ -29,6 +29,8 @@ jobs:
       - name: Run a one-line script
         run: |
           cat README.md > Q1_archive_README.md
+          git config user.email "gabirocher@icloud.com"
+          git config user.name "TheCrafteur2015"
           git add Q1_archive_README.md
           git commit -m "Mise à jour du fichier Q1_archive_README.md"
           git push
